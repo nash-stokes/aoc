@@ -1,0 +1,15 @@
+/Users/nashstokes/RiderProjects/AoCDay1/bin/Debug/net6.0/AoCDay1
+/Users/nashstokes/RiderProjects/AoCDay1/bin/Debug/net6.0/AoCDay1.deps.json
+/Users/nashstokes/RiderProjects/AoCDay1/bin/Debug/net6.0/AoCDay1.runtimeconfig.json
+/Users/nashstokes/RiderProjects/AoCDay1/bin/Debug/net6.0/AoCDay1.dll
+/Users/nashstokes/RiderProjects/AoCDay1/bin/Debug/net6.0/AoCDay1.pdb
+/Users/nashstokes/RiderProjects/AoCDay1/obj/Debug/net6.0/AoCDay1.csproj.AssemblyReference.cache
+/Users/nashstokes/RiderProjects/AoCDay1/obj/Debug/net6.0/AoCDay1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nashstokes/RiderProjects/AoCDay1/obj/Debug/net6.0/AoCDay1.AssemblyInfoInputs.cache
+/Users/nashstokes/RiderProjects/AoCDay1/obj/Debug/net6.0/AoCDay1.AssemblyInfo.cs
+/Users/nashstokes/RiderProjects/AoCDay1/obj/Debug/net6.0/AoCDay1.csproj.CoreCompileInputs.cache
+/Users/nashstokes/RiderProjects/AoCDay1/obj/Debug/net6.0/AoCDay1.dll
+/Users/nashstokes/RiderProjects/AoCDay1/obj/Debug/net6.0/refint/AoCDay1.dll
+/Users/nashstokes/RiderProjects/AoCDay1/obj/Debug/net6.0/AoCDay1.pdb
+/Users/nashstokes/RiderProjects/AoCDay1/obj/Debug/net6.0/AoCDay1.genruntimeconfig.cache
+/Users/nashstokes/RiderProjects/AoCDay1/obj/Debug/net6.0/ref/AoCDay1.dll
