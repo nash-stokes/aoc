@@ -4,8 +4,10 @@ namespace AoCDay1;
 
 public class Day1Solver
 {
-    private coords _coords = new coords(0, 0);
-    public direction facing = direction.North;
+    private coords _coords = new (0, 0);
+    private direction _facing = direction.North;
+    private readonly HashSet<coords> _coordsSet = new ();
+    private bool doubleVisitFound = false;
     public void SolvePartOne()
     {
         var fileReader = new FileReader();
@@ -14,7 +16,10 @@ public class Day1Solver
         string[] directions = text.Split(", ");
         foreach (var direction in directions)
         {
-            Console.WriteLine("Initial position: " + _coords.X + "," + _coords.Y);
+            if (doubleVisitFound)
+            {
+                break;
+            }
             DirectionToMovement(direction);
             Console.WriteLine("Final position: " + _coords.X + "," + _coords.Y);
         }
@@ -27,25 +32,25 @@ public class Day1Solver
         int.TryParse(turnDirection[1..], out var numberOfBlocks);
         if (turnDirection[0] == 'L')
         {
-            facing = facing switch
+            _facing = _facing switch
             {
                 direction.North => direction.West,
                 direction.East => direction.North,
                 direction.South => direction.East,
                 direction.West => direction.South,
-                _ => facing
+                _ => _facing
             };
             Console.WriteLine("Turning Left");
         }
         else
         {
-            facing = facing switch
+            _facing = _facing switch
             {
                 direction.North => direction.East,
                 direction.East => direction.South,
                 direction.South => direction.West,
                 direction.West => direction.North,
-                _ => facing
+                _ => _facing
             };
             Console.WriteLine("Turning Right");
         }
@@ -54,20 +59,94 @@ public class Day1Solver
 
     private void BlockShiftHandler(int blocks)
     {
-        switch (facing)
+        switch (_facing)
         {
             case direction.North:
-                _coords.Y += blocks;
+                walkNorth(blocks);
                 break;
             case direction.East:
-                _coords.X += blocks;
+                walkEast(blocks);
                 break;
             case direction.South:
-                _coords.Y -= blocks;
+                walkSouth(blocks);
                 break;
             case direction.West:
-                _coords.X -= blocks;
+                walkWest(blocks);
                 break;
+        }
+    }
+
+    private void walkNorth(int blocks)
+    {
+        for(int i = 0; i < blocks; i++)
+        {
+            _coords.Y++;
+            var currentCoord = new coords(_coords.X, _coords.Y);
+            if (_coordsSet.Contains(currentCoord))
+            {
+                int distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
+                Console.WriteLine("DOUBLE HIT THIS FAR AWAY: " + distance);
+                doubleVisitFound = true;
+            }
+            else
+            {
+                _coordsSet.Add(currentCoord);
+            }
+        }
+    }
+    private void walkEast(int blocks)
+    {
+        for(int i = 0; i < blocks; i++)
+        {
+            _coords.X++;
+            var currentCoord = new coords(_coords.X, _coords.Y);
+            if (_coordsSet.Contains(currentCoord))
+            {
+                int distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
+                Console.WriteLine("DOUBLE HIT THIS FAR AWAY: " + distance);
+                doubleVisitFound = true;
+
+            }
+            else
+            {
+                _coordsSet.Add(currentCoord);
+            }
+        }
+    }
+    private void walkWest(int blocks)
+    {
+        for(int i = 0; i < blocks; i++)
+        {
+            _coords.X--;
+            var currentCoord = new coords(_coords.X, _coords.Y);
+            if (_coordsSet.Contains(currentCoord))
+            {
+                int distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
+                Console.WriteLine("DOUBLE HIT THIS FAR AWAY: " + distance);
+                doubleVisitFound = true;
+            }
+            else
+            {
+                _coordsSet.Add(currentCoord);
+            }
+        }
+    }
+    private void walkSouth(int blocks)
+    {
+        for(int i = 0; i < blocks; i++)
+        {
+            _coords.Y--;
+            var currentCoord = new coords(_coords.X, _coords.Y);
+            if (_coordsSet.Contains(currentCoord))
+            {
+                int distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
+                Console.WriteLine("DOUBLE HIT THIS FAR AWAY: " + distance);
+                doubleVisitFound = true;
+            }
+            else
+            {
+                _coordsSet.Add(currentCoord);
+            }
         }
     }
 
@@ -75,13 +154,11 @@ public class Day1Solver
     {
         public int X;
         public int Y;
-        public int counter;
 
         public coords(int x, int y)
         {
             X = x;
             Y = y;
-            counter = 0;
         }
     }
 
