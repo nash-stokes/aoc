@@ -1,4 +1,4 @@
-using AoCDay1.Utilities;
+using AoCProblemSolvers.Utilities;
 
 namespace AoCDay1;
 

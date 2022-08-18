@@ -1,13 +1,13 @@
-﻿using System.Xml.Serialization;
+﻿using AoCDay2;
 
-namespace AoCDay1
+namespace AoCProblemSolvers
 {
     public class ConsoleReader
     {
         public static void Main(string[] args)
         {
-            var ProblemSolver = new Day1Solver();
-            ProblemSolver.SolvePartOne();
+            var ProblemSolver = new Day2Solver();
+            ProblemSolver.SolvePartTwo();
         }
     }
 }

@@ -1,4 +1,4 @@
-namespace AoCDay1.Utilities;
+namespace AoCProblemSolvers.Utilities;
 
 public class FileReader
 {
