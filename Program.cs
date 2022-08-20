@@ -1,4 +1,4 @@
-﻿using AoCDay2;
+﻿using AoCDay3;
 
 namespace AoCProblemSolvers
 {
@@ -6,8 +6,8 @@ namespace AoCProblemSolvers
     {
         public static void Main(string[] args)
         {
-            var ProblemSolver = new Day2Solver();
-            ProblemSolver.SolvePartTwo();
+            var ProblemSolver = new Day3Solver();
+            ProblemSolver.SolvePartOne();
         }
     }
 }

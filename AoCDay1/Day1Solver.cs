@@ -13,7 +13,7 @@ public class Day1Solver
         var fileReader = new FileReader();
         var rawText = fileReader.read("../../../AoCDay1/input.txt");
         var text = rawText.ToArray().ElementAt(0);
-        string[] directions = text.Split(", ");
+        string[] directions = text.Split();
         foreach (var direction in directions)
         {
             if (doubleVisitFound)
