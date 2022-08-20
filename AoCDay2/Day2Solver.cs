@@ -32,16 +32,40 @@ public class Day2Solver
         switch (direction)
         {
             case 'U':
-                if (_currY > 0 && _dialpad[_currY--, _currX] != '0') _currY--;
+                if (_currY > 0)
+                {
+                    if (_dialpad[_currY-1, _currX] != '0')
+                    {
+                        _currY--;
+                    }
+                }
                 break;
             case 'D':
-                if (_currY < 4 && _dialpad[_currY++, _currX] != '0') _currY++;
+                if (_currY < 4)
+                {
+                    if (_dialpad[_currY+1, _currX] != '0')
+                    {
+                        _currY++;
+                    }
+                }
                 break;
             case 'L':
-                if (_currX > 0 && _dialpad[_currY, _currX--] != '0') _currX--;
+                if (_currX > 0)
+                {
+                    if (_dialpad[_currY, _currX-1] != '0')
+                    {
+                        _currX--;
+                    }
+                }
                 break;
             case 'R':
-                if (_currX < 4 && _dialpad[_currY, _currX++] != '0') _currX++;
+                if (_currX < 4)
+                {
+                    if (_dialpad[_currY, _currX+1] != '0')
+                    {
+                        _currX++;
+                    }
+                }
                 break;
             default:
                 break;
