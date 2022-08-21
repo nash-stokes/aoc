@@ -7,7 +7,7 @@ namespace AoCProblemSolvers
         public static void Main(string[] args)
         {
             var ProblemSolver = new Day3Solver();
-            ProblemSolver.SolvePartOne();
+            ProblemSolver.SolvePartTwo();
         }
     }
 }

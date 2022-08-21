@@ -4,7 +4,7 @@ namespace AoCDay2;
 
 public class Day2Solver
 {
-    //TODO:ask about const vs static
+    //Difference between const and static
     private static readonly char[,] _dialpad = new char[5, 5] { {'0', '0', '1','0','0'},{'0','2','3','4','0'},
         {'5','6','7','8','9'},{'0','A','B','C', '0'}, {'0','0','D', '0', '0' }};
     private int _currX = 0;
@@ -23,7 +23,6 @@ public class Day2Solver
             }
             _bathroomCode += _dialpad[_currY, _currX];
         }
-
         Console.WriteLine("Final number: " + _bathroomCode);
     }
 
@@ -32,43 +31,63 @@ public class Day2Solver
         switch (direction)
         {
             case 'U':
-                if (_currY > 0)
-                {
-                    if (_dialpad[_currY-1, _currX] != '0')
-                    {
-                        _currY--;
-                    }
-                }
+                upMovement();
                 break;
             case 'D':
-                if (_currY < 4)
-                {
-                    if (_dialpad[_currY+1, _currX] != '0')
-                    {
-                        _currY++;
-                    }
-                }
+                downMovement();
                 break;
             case 'L':
-                if (_currX > 0)
-                {
-                    if (_dialpad[_currY, _currX-1] != '0')
-                    {
-                        _currX--;
-                    }
-                }
+                leftMovement();
                 break;
             case 'R':
-                if (_currX < 4)
-                {
-                    if (_dialpad[_currY, _currX+1] != '0')
-                    {
-                        _currX++;
-                    }
-                }
+                rightMovement();
                 break;
             default:
                 break;
+        }
+    }
+
+    private void upMovement()
+    {
+        if (_currY > 0)
+        {
+            if (_dialpad[_currY - 1, _currX] != '0')
+            {
+                _currY--;
+            }
+        }
+    }
+
+    private void downMovement()
+    {
+        if (_currY < 4)
+        {
+            if (_dialpad[_currY + 1, _currX] != '0')
+            {
+                _currY++;
+            }
+        }
+    }
+
+    private void leftMovement()
+    {
+        if (_currX > 0)
+        {
+            if (_dialpad[_currY, _currX - 1] != '0')
+            {
+                _currX--;
+            }
+        }
+    }
+
+    private void rightMovement()
+    {
+        if (_currX < 4)
+        {
+            if (_dialpad[_currY, _currX + 1] != '0')
+            {
+                _currX++;
+            }
         }
     }
 }
