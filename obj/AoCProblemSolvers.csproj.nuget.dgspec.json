@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/nashstokes/RiderProjects/AoCProblemSolvers/AoCProblemSolvers.csproj": {}
+    "/Users/nashstokes/RiderProjects/aoc/AoCProblemSolvers.csproj": {}
   },
   "projects": {
-    "/Users/nashstokes/RiderProjects/AoCProblemSolvers/AoCProblemSolvers.csproj": {
+    "/Users/nashstokes/RiderProjects/aoc/AoCProblemSolvers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nashstokes/RiderProjects/AoCProblemSolvers/AoCProblemSolvers.csproj",
+        "projectUniqueName": "/Users/nashstokes/RiderProjects/aoc/AoCProblemSolvers.csproj",
         "projectName": "AoCProblemSolvers",
-        "projectPath": "/Users/nashstokes/RiderProjects/AoCProblemSolvers/AoCProblemSolvers.csproj",
+        "projectPath": "/Users/nashstokes/RiderProjects/aoc/AoCProblemSolvers.csproj",
         "packagesPath": "/Users/nashstokes/.nuget/packages/",
-        "outputPath": "/Users/nashstokes/RiderProjects/AoCProblemSolvers/obj/",
+        "outputPath": "/Users/nashstokes/RiderProjects/aoc/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/nashstokes/.nuget/NuGet/NuGet.Config"

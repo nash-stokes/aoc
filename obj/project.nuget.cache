@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2wv5kcYhQoIjUa9g3EP4G3rNXIiMAMjkFKtENj2JMV/PRIQImXnounv4+Ib/rIw/K3KdPzyVhCylHY9JMhhHsQ==",
+  "dgSpecHash": "VuL82/Ef40qp3x6KJRUrF4ex6ZOELxI4G4mygi60frsSCUPszoxq7ezXNj3FCOvZop2+/qusFRuUSrRh8eY6Mg==",
   "success": true,
-  "projectFilePath": "/Users/nashstokes/RiderProjects/AoCProblemSolvers/AoCProblemSolvers.csproj",
+  "projectFilePath": "/Users/nashstokes/RiderProjects/aoc/AoCProblemSolvers.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
