@@ -2,7 +2,7 @@ namespace AoCProblemSolvers.Utilities;
 
 public class FileReader
 {
-    public IEnumerable<string> read(string fileName)
+    public IEnumerable<string> Read(string fileName)
     {
         string line;
         using (var reader = new StreamReader(fileName))

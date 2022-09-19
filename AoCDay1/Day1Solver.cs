@@ -4,19 +4,19 @@ namespace AoCDay1;
 
 public class Day1Solver
 {
-    private coords _coords = new (0, 0);
-    private direction _facing = direction.North;
-    private readonly HashSet<coords> _coordsSet = new ();
-    private bool doubleVisitFound = false;
+    private Coords _coords = new (0, 0);
+    private Direction _facing = Direction.North;
+    private readonly HashSet<Coords> _coordsSet = new ();
+    private bool _doubleVisitFound = false;
     public void SolvePartOne()
     {
         var fileReader = new FileReader();
-        var rawText = fileReader.read("../../../AoCDay1/input.txt");
+        var rawText = fileReader.Read("../../../AoCDay1/input.txt");
         var text = rawText.ToArray().ElementAt(0);
         string[] directions = text.Split();
         foreach (var direction in directions)
         {
-            if (doubleVisitFound)
+            if (_doubleVisitFound)
             {
                 break;
             }
@@ -34,10 +34,10 @@ public class Day1Solver
         {
             _facing = _facing switch
             {
-                direction.North => direction.West,
-                direction.East => direction.North,
-                direction.South => direction.East,
-                direction.West => direction.South,
+                Direction.North => Direction.West,
+                Direction.East => Direction.North,
+                Direction.South => Direction.East,
+                Direction.West => Direction.South,
                 _ => _facing
             };
             Console.WriteLine("Turning Left");
@@ -46,10 +46,10 @@ public class Day1Solver
         {
             _facing = _facing switch
             {
-                direction.North => direction.East,
-                direction.East => direction.South,
-                direction.South => direction.West,
-                direction.West => direction.North,
+                Direction.North => Direction.East,
+                Direction.East => Direction.South,
+                Direction.South => Direction.West,
+                Direction.West => Direction.North,
                 _ => _facing
             };
             Console.WriteLine("Turning Right");
@@ -61,32 +61,32 @@ public class Day1Solver
     {
         switch (_facing)
         {
-            case direction.North:
-                walkNorth(blocks);
+            case Direction.North:
+                WalkNorth(blocks);
                 break;
-            case direction.East:
-                walkEast(blocks);
+            case Direction.East:
+                WalkEast(blocks);
                 break;
-            case direction.South:
-                walkSouth(blocks);
+            case Direction.South:
+                WalkSouth(blocks);
                 break;
-            case direction.West:
-                walkWest(blocks);
+            case Direction.West:
+                WalkWest(blocks);
                 break;
         }
     }
 
-    private void walkNorth(int blocks)
+    private void WalkNorth(int blocks)
     {
         for(int i = 0; i < blocks; i++)
         {
             _coords.Y++;
-            var currentCoord = new coords(_coords.X, _coords.Y);
+            var currentCoord = new Coords(_coords.X, _coords.Y);
             if (_coordsSet.Contains(currentCoord))
             {
                 int distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
                 Console.WriteLine("DOUBLE HIT THIS FAR AWAY: " + distance);
-                doubleVisitFound = true;
+                _doubleVisitFound = true;
             }
             else
             {
@@ -94,17 +94,17 @@ public class Day1Solver
             }
         }
     }
-    private void walkEast(int blocks)
+    private void WalkEast(int blocks)
     {
         for(int i = 0; i < blocks; i++)
         {
             _coords.X++;
-            var currentCoord = new coords(_coords.X, _coords.Y);
+            var currentCoord = new Coords(_coords.X, _coords.Y);
             if (_coordsSet.Contains(currentCoord))
             {
                 int distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
                 Console.WriteLine("DOUBLE HIT THIS FAR AWAY: " + distance);
-                doubleVisitFound = true;
+                _doubleVisitFound = true;
 
             }
             else
@@ -113,17 +113,17 @@ public class Day1Solver
             }
         }
     }
-    private void walkWest(int blocks)
+    private void WalkWest(int blocks)
     {
         for(int i = 0; i < blocks; i++)
         {
             _coords.X--;
-            var currentCoord = new coords(_coords.X, _coords.Y);
+            var currentCoord = new Coords(_coords.X, _coords.Y);
             if (_coordsSet.Contains(currentCoord))
             {
                 int distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
                 Console.WriteLine("DOUBLE HIT THIS FAR AWAY: " + distance);
-                doubleVisitFound = true;
+                _doubleVisitFound = true;
             }
             else
             {
@@ -131,17 +131,17 @@ public class Day1Solver
             }
         }
     }
-    private void walkSouth(int blocks)
+    private void WalkSouth(int blocks)
     {
         for(int i = 0; i < blocks; i++)
         {
             _coords.Y--;
-            var currentCoord = new coords(_coords.X, _coords.Y);
+            var currentCoord = new Coords(_coords.X, _coords.Y);
             if (_coordsSet.Contains(currentCoord))
             {
                 int distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
                 Console.WriteLine("DOUBLE HIT THIS FAR AWAY: " + distance);
-                doubleVisitFound = true;
+                _doubleVisitFound = true;
             }
             else
             {
@@ -150,19 +150,19 @@ public class Day1Solver
         }
     }
 
-    struct coords
+    struct Coords
     {
         public int X;
         public int Y;
 
-        public coords(int x, int y)
+        public Coords(int x, int y)
         {
             X = x;
             Y = y;
         }
     }
 
-    public enum direction
+    public enum Direction
     {
         North,
         East,

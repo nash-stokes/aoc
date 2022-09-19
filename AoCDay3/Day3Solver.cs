@@ -7,7 +7,7 @@ public class Day3Solver
     public void SolvePartOne()
     {
         var fileReader = new FileReader();
-        var rawText = fileReader.read("../../../AoCDay3/input.txt");
+        var rawText = fileReader.Read("../../../AoCDay3/input.txt");
         var text = rawText.ToArray();
         foreach(var line in text)
         {
@@ -26,7 +26,7 @@ public class Day3Solver
     public void SolvePartTwo()
     {
         var fileReader = new FileReader();
-        var rawText = fileReader.read("../../../AoCDay3/input.txt");
+        var rawText = fileReader.Read("../../../AoCDay3/input.txt");
         var text = rawText.ToArray();
         List<int> dimensions = new List<int>();
         foreach (var line in text)

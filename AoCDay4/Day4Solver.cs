@@ -5,26 +5,74 @@ public class Day4Solver
 {
     private FileReader _fileReader;
     private IEnumerable<string> _rawText;
-    private string[] _text; 
-    
+    private string[] _text;
+    private SortedDictionary<char, int> _letterRegistry = new();
+
     public Day4Solver()
     {
         _fileReader = new FileReader();
-        _rawText = _fileReader.read("../../../AoCDay4/input.txt");
+        _rawText = _fileReader.Read("../../../AoCDay4/input.txt");
         _text = _rawText.ToArray();
     }
+
     public void SolvePartOne()
     {
-        foreach(var line in text)
+        int sum = 0;
+        foreach (var line in _text)
         {
-            var dimensions = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
-            var side1 = Int32.Parse(dimensions[0]);
-            var side2 = Int32.Parse(dimensions[1]);
-            var side3 = Int32.Parse(dimensions[2]);
-            if (side1 < side2 + side3 && side2 < side1 + side3 && side3 < side1 + side2)
+            List<string> charStringsRaw = new List<string>(line.Split('-'));
+            string? judgmentString = charStringsRaw.LastOrDefault();
+            int sectorId = Convert.ToInt32(judgmentString.Split('[').ElementAt(0));
+            string judgmentCharacters = judgmentString.Split('[').ElementAt(1).Trim(']');
+            charStringsRaw.Remove(judgmentString);
+            //iterate over each string
+            UpdateRegistry(charStringsRaw);
+            if (stringTest(judgmentCharacters))
             {
-                _validTriangleCounter++;
+                sum += sectorId;
+            }
+            _letterRegistry.Clear();
+        }
+        Console.WriteLine(sum);
+    }
+
+    private bool stringTest(string judgmentCharacters)
+    {
+        
+        IEnumerable<char> sortedString = _letterRegistry.Keys.Take(5);
+        foreach (var letter in _letterRegistry)
+        {
+            Console.Write(letter);
+        }
+        Console.WriteLine();
+        for (var index = 0; index < judgmentCharacters.Length; index++)
+        {
+            var letter = judgmentCharacters[index];
+            if (letter != sortedString.ElementAt(index))
+            {
+                return false;
             }
         }
-        Console.WriteLine(_validTriangleCounter.ToString());
+
+        return true;
     }
+
+    private void UpdateRegistry(List<string> charStringsRaw)
+    {
+        foreach (var charString in charStringsRaw)
+        {
+            //iterate over each character
+            foreach (var character in charString)
+            {
+                if (_letterRegistry.Any(c => c.Key == character))
+                {
+                    _letterRegistry[character]++;
+                }
+                else
+                {
+                    _letterRegistry.Add(character, 1);
+                }
+            }
+        }
+    }
+}

@@ -5,7 +5,7 @@ namespace AoCDay2;
 public class Day2Solver
 {
     //Difference between const and static
-    private static readonly char[,] _dialpad = new char[5, 5] { {'0', '0', '1','0','0'},{'0','2','3','4','0'},
+    private static readonly char[,] Dialpad = new char[5, 5] { {'0', '0', '1','0','0'},{'0','2','3','4','0'},
         {'5','6','7','8','9'},{'0','A','B','C', '0'}, {'0','0','D', '0', '0' }};
     private int _currX = 0;
     private int _currY = 2;
@@ -13,78 +13,78 @@ public class Day2Solver
     public void SolvePartTwo()
     {
         var fileReader = new FileReader();
-        var rawText = fileReader.read("../../../AoCDay2/input.txt");
+        var rawText = fileReader.Read("../../../AoCDay2/input.txt");
         var text = rawText.ToArray();
         foreach(string line in text)
         {
             foreach (char direction in line)
             {
-                shiftNumber(direction);
+                ShiftNumber(direction);
             }
-            _bathroomCode += _dialpad[_currY, _currX];
+            _bathroomCode += Dialpad[_currY, _currX];
         }
         Console.WriteLine("Final number: " + _bathroomCode);
     }
 
-    private void shiftNumber(char direction)
+    private void ShiftNumber(char direction)
     {
         switch (direction)
         {
             case 'U':
-                upMovement();
+                UpMovement();
                 break;
             case 'D':
-                downMovement();
+                DownMovement();
                 break;
             case 'L':
-                leftMovement();
+                LeftMovement();
                 break;
             case 'R':
-                rightMovement();
+                RightMovement();
                 break;
             default:
                 break;
         }
     }
 
-    private void upMovement()
+    private void UpMovement()
     {
         if (_currY > 0)
         {
-            if (_dialpad[_currY - 1, _currX] != '0')
+            if (Dialpad[_currY - 1, _currX] != '0')
             {
                 _currY--;
             }
         }
     }
 
-    private void downMovement()
+    private void DownMovement()
     {
         if (_currY < 4)
         {
-            if (_dialpad[_currY + 1, _currX] != '0')
+            if (Dialpad[_currY + 1, _currX] != '0')
             {
                 _currY++;
             }
         }
     }
 
-    private void leftMovement()
+    private void LeftMovement()
     {
         if (_currX > 0)
         {
-            if (_dialpad[_currY, _currX - 1] != '0')
+            if (Dialpad[_currY, _currX - 1] != '0')
             {
                 _currX--;
             }
         }
     }
 
-    private void rightMovement()
+    private void RightMovement()
     {
         if (_currX < 4)
         {
-            if (_dialpad[_currY, _currX + 1] != '0')
+            if (Dialpad[_currY, _currX + 1] != '0')
             {
                 _currX++;
             }
