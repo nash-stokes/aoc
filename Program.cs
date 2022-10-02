@@ -8,6 +8,7 @@ namespace AoCProblemSolvers
         {
             var problemSolver = new Day4Solver();
             problemSolver.SolvePartOne();
+            problemSolver.SolvePartTwo();
         }
     }
 }
