@@ -7,10 +7,7 @@ public class FileReader
         string line;
         using (var reader = new StreamReader(fileName))
         {
-            while ((line = reader.ReadLine()) != null)
-            {
-                yield return line;
-            }
+            while ((line = reader.ReadLine()) != null) yield return line;
         }
     }
 }

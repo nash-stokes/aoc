@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nashs\\Source\\Repos\\nash-stokes\\aoc\\AoCProblemSolvers.csproj": {}
+    "/Users/nashstokes/RiderProjects/aoc/AoCProblemSolvers.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nashs\\Source\\Repos\\nash-stokes\\aoc\\AoCProblemSolvers.csproj": {
+    "/Users/nashstokes/RiderProjects/aoc/AoCProblemSolvers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nashs\\Source\\Repos\\nash-stokes\\aoc\\AoCProblemSolvers.csproj",
+        "projectUniqueName": "/Users/nashstokes/RiderProjects/aoc/AoCProblemSolvers.csproj",
         "projectName": "AoCProblemSolvers",
-        "projectPath": "C:\\Users\\nashs\\Source\\Repos\\nash-stokes\\aoc\\AoCProblemSolvers.csproj",
-        "packagesPath": "C:\\Users\\nashs\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nashs\\Source\\Repos\\nash-stokes\\aoc\\obj\\",
+        "projectPath": "/Users/nashstokes/RiderProjects/aoc/AoCProblemSolvers.csproj",
+        "packagesPath": "/Users/nashstokes/.nuget/packages/",
+        "outputPath": "/Users/nashstokes/RiderProjects/aoc/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nashs\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/nashstokes/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nexus.integrate.ninja/repository/nuget-group-v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -39,6 +41,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "System.Security.Cryptography.Primitives": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }

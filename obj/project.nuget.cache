@@ -1,8 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "lKHfYA5pTAQGMOdrqkOEa6rp4NzLUetNeK5udylCNts4Dj1pxsgK9sThtyS0fgv96YjbshGOzk25zGIn3mVWPA==",
+  "dgSpecHash": "l3lCNKFaf1TwhYZg3ftDP3KcypeGqiQcTB4CPm0/RYFVPDCafFuBjLdBkDBboKXEF61bX1JKio0Ky/vURWRhMQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nashs\\Source\\Repos\\nash-stokes\\aoc\\AoCProblemSolvers.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/nashstokes/RiderProjects/aoc/AoCProblemSolvers.csproj",
+  "expectedPackageFiles": [
+    "/Users/nashstokes/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/Users/nashstokes/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "/Users/nashstokes/.nuget/packages/system.diagnostics.debug/4.3.0/system.diagnostics.debug.4.3.0.nupkg.sha512",
+    "/Users/nashstokes/.nuget/packages/system.globalization/4.3.0/system.globalization.4.3.0.nupkg.sha512",
+    "/Users/nashstokes/.nuget/packages/system.io/4.3.0/system.io.4.3.0.nupkg.sha512",
+    "/Users/nashstokes/.nuget/packages/system.reflection/4.3.0/system.reflection.4.3.0.nupkg.sha512",
+    "/Users/nashstokes/.nuget/packages/system.reflection.primitives/4.3.0/system.reflection.primitives.4.3.0.nupkg.sha512",
+    "/Users/nashstokes/.nuget/packages/system.resources.resourcemanager/4.3.0/system.resources.resourcemanager.4.3.0.nupkg.sha512",
+    "/Users/nashstokes/.nuget/packages/system.runtime/4.3.0/system.runtime.4.3.0.nupkg.sha512",
+    "/Users/nashstokes/.nuget/packages/system.security.cryptography.primitives/4.3.0/system.security.cryptography.primitives.4.3.0.nupkg.sha512",
+    "/Users/nashstokes/.nuget/packages/system.text.encoding/4.3.0/system.text.encoding.4.3.0.nupkg.sha512",
+    "/Users/nashstokes/.nuget/packages/system.threading/4.3.0/system.threading.4.3.0.nupkg.sha512",
+    "/Users/nashstokes/.nuget/packages/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg.sha512"
+  ],
   "logs": []
 }

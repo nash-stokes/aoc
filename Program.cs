@@ -1,14 +1,13 @@
 ﻿using AoCDay4;
 
-namespace AoCProblemSolvers
+namespace AoCProblemSolvers;
+
+public class ConsoleReader
 {
-    public class ConsoleReader
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            var problemSolver = new Day4Solver();
-            problemSolver.SolvePartOne();
-            problemSolver.SolvePartTwo();
-        }
+        var problemSolver = new Day4Solver();
+        problemSolver.SolvePartOne();
+        problemSolver.SolvePartTwo();
     }
 }

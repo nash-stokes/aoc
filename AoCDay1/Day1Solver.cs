@@ -1,32 +1,31 @@
 using AoCProblemSolvers.Utilities;
 
-namespace AoCDay1;
+namespace AoCProblemSolvers.AoCDay1;
 
 public class Day1Solver
 {
-    private Coords _coords = new (0, 0);
+    private Coords _coords = new(0, 0);
     private Direction _facing = Direction.North;
-    private readonly HashSet<Coords> _coordsSet = new ();
+    private readonly HashSet<Coords> _coordsSet = new();
     private bool _doubleVisitFound = false;
+
     public void SolvePartOne()
     {
         var fileReader = new FileReader();
         var rawText = fileReader.Read("../../../AoCDay1/input.txt");
         var text = rawText.ToArray().ElementAt(0);
-        string[] directions = text.Split();
+        var directions = text.Split();
         foreach (var direction in directions)
         {
-            if (_doubleVisitFound)
-            {
-                break;
-            }
+            if (_doubleVisitFound) break;
             DirectionToMovement(direction);
             Console.WriteLine("Final position: " + _coords.X + "," + _coords.Y);
         }
-        
-        int distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
+
+        var distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
         Console.WriteLine("Final distance from origin: {0} blocks", distance);
     }
+
     private void DirectionToMovement(string turnDirection)
     {
         int.TryParse(turnDirection[1..], out var numberOfBlocks);
@@ -54,6 +53,7 @@ public class Day1Solver
             };
             Console.WriteLine("Turning Right");
         }
+
         BlockShiftHandler(numberOfBlocks);
     }
 
@@ -78,13 +78,13 @@ public class Day1Solver
 
     private void WalkNorth(int blocks)
     {
-        for(int i = 0; i < blocks; i++)
+        for (var i = 0; i < blocks; i++)
         {
             _coords.Y++;
             var currentCoord = new Coords(_coords.X, _coords.Y);
             if (_coordsSet.Contains(currentCoord))
             {
-                int distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
+                var distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
                 Console.WriteLine("DOUBLE HIT THIS FAR AWAY: " + distance);
                 _doubleVisitFound = true;
             }
@@ -94,18 +94,18 @@ public class Day1Solver
             }
         }
     }
+
     private void WalkEast(int blocks)
     {
-        for(int i = 0; i < blocks; i++)
+        for (var i = 0; i < blocks; i++)
         {
             _coords.X++;
             var currentCoord = new Coords(_coords.X, _coords.Y);
             if (_coordsSet.Contains(currentCoord))
             {
-                int distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
+                var distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
                 Console.WriteLine("DOUBLE HIT THIS FAR AWAY: " + distance);
                 _doubleVisitFound = true;
-
             }
             else
             {
@@ -113,33 +113,16 @@ public class Day1Solver
             }
         }
     }
+
     private void WalkWest(int blocks)
     {
-        for(int i = 0; i < blocks; i++)
+        for (var i = 0; i < blocks; i++)
         {
             _coords.X--;
             var currentCoord = new Coords(_coords.X, _coords.Y);
             if (_coordsSet.Contains(currentCoord))
             {
-                int distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
-                Console.WriteLine("DOUBLE HIT THIS FAR AWAY: " + distance);
-                _doubleVisitFound = true;
-            }
-            else
-            {
-                _coordsSet.Add(currentCoord);
-            }
-        }
-    }
-    private void WalkSouth(int blocks)
-    {
-        for(int i = 0; i < blocks; i++)
-        {
-            _coords.Y--;
-            var currentCoord = new Coords(_coords.X, _coords.Y);
-            if (_coordsSet.Contains(currentCoord))
-            {
-                int distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
+                var distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
                 Console.WriteLine("DOUBLE HIT THIS FAR AWAY: " + distance);
                 _doubleVisitFound = true;
             }
@@ -150,7 +133,26 @@ public class Day1Solver
         }
     }
 
-    struct Coords
+    private void WalkSouth(int blocks)
+    {
+        for (var i = 0; i < blocks; i++)
+        {
+            _coords.Y--;
+            var currentCoord = new Coords(_coords.X, _coords.Y);
+            if (_coordsSet.Contains(currentCoord))
+            {
+                var distance = Math.Abs(_coords.X) + Math.Abs(_coords.Y);
+                Console.WriteLine("DOUBLE HIT THIS FAR AWAY: " + distance);
+                _doubleVisitFound = true;
+            }
+            else
+            {
+                _coordsSet.Add(currentCoord);
+            }
+        }
+    }
+
+    private struct Coords
     {
         public int X;
         public int Y;
