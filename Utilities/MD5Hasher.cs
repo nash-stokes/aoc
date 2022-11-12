@@ -1,13 +1,18 @@
+using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography;
 
 namespace AoCProblemSolvers.Utilities;
 
-public class Md5Hasher
+public static class Md5Hasher
 {
-    private string inputString;
 
-    public Md5Hasher(string stringToHash)
+    public static string hashIt(string stringToHash)
     {
-        var hasher = new HashCode();
+        byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(stringToHash);
+        byte[] outputBytes = MD5.Create().ComputeHash(inputBytes);
+        string hexString = Convert.ToHexString(outputBytes);
+        return hexString;
     }
+
+
 }

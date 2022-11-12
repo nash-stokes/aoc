@@ -955,30 +955,27 @@
     ]
   },
   "packageFolders": {
-    "/Users/nashstokes/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\nashs\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/nashstokes/RiderProjects/aoc/AoCProblemSolvers.csproj",
+      "projectUniqueName": "C:\\Users\\nashs\\source\\repos\\nash-stokes\\aoc\\AoCProblemSolvers.csproj",
       "projectName": "AoCProblemSolvers",
-      "projectPath": "/Users/nashstokes/RiderProjects/aoc/AoCProblemSolvers.csproj",
-      "packagesPath": "/Users/nashstokes/.nuget/packages/",
-      "outputPath": "/Users/nashstokes/RiderProjects/aoc/obj/",
+      "projectPath": "C:\\Users\\nashs\\source\\repos\\nash-stokes\\aoc\\AoCProblemSolvers.csproj",
+      "packagesPath": "C:\\Users\\nashs\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nashs\\source\\repos\\nash-stokes\\aoc\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "/Users/nashstokes/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\nashs\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nexus.integrate.ninja/repository/nuget-group-v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
@@ -1017,7 +1014,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
