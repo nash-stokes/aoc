@@ -1,13 +1,12 @@
-﻿using AoCDay3;
+﻿using AoCProblemSolvers.AoCDay5;
 
-namespace AoCProblemSolvers
+namespace AoCProblemSolvers;
+
+public class ConsoleReader
 {
-    public class ConsoleReader
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            var ProblemSolver = new Day3Solver();
-            ProblemSolver.SolvePartTwo();
-        }
+        var problemSolver = new Day5Solver();
+        problemSolver.SolvePartOne();
     }
 }

@@ -5,8 +5,12 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>AoCDay1</RootNamespace>
+        <RootNamespace>AoCProblemSolvers</RootNamespace>
         <LangVersion>latestmajor</LangVersion>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Security.Cryptography.Primitives" Version="4.3.0" />
+    </ItemGroup>
 
 </Project>
