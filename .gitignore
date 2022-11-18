@@ -1,7 +1,2 @@
 bin*
-obj\Debug\net6.0\*
-bin\*
-*.dll
-*.pdb
-/.vs
-/RiderProjects/aoc/bin/*
+obj*
