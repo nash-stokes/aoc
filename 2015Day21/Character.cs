@@ -22,5 +22,18 @@ namespace AoCProblemSolvers._2015Day21
             _damage = damage;
             _armor = armor;
         }
+
+        public int Attack(Character enemy)
+        {
+            if(enemy._armor >= this._damage)
+            {
+                enemy._hitPoints--;
+            }
+            else if (enemy._armor < this._damage)
+            {
+                enemy._hitPoints = enemy._hitPoints - (this._damage- enemy._armor); 
+            }
+            return enemy._hitPoints;
+        }
     }
 }
