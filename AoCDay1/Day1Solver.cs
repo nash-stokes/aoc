@@ -1,13 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using AoCProblemSolvers.Utilities;
 
 namespace AoCProblemSolvers.AoCDay1;
 
 public class Day1Solver
 {
-    private Coords _coords = new(0, 0);
-    private Direction _facing = Direction.North;
+    public enum Direction
+    {
+        North,
+        East,
+        South,
+        West
+    }
+
     private readonly HashSet<Coords> _coordsSet = new();
-    private bool _doubleVisitFound = false;
+    private Coords _coords = new(0, 0);
+    private bool _doubleVisitFound;
+    private Direction _facing = Direction.North;
 
     public void SolvePartOne()
     {
@@ -162,13 +173,5 @@ public class Day1Solver
             X = x;
             Y = y;
         }
-    }
-
-    public enum Direction
-    {
-        North,
-        East,
-        South,
-        West
     }
 }

@@ -1,16 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using AoCProblemSolvers.Utilities;
 
 namespace AoCDay4;
 
 public class Day4Solver
 {
-    private FileReader _fileReader;
-    private IEnumerable<string> _rawText;
-    private string[] _text;
-    private Dictionary<char, int> _letterRegistry = new();
-    private int _letterShift = 0;
-    private List<string> realLocations = new();
-    private bool targetRoom = false;
+    private readonly FileReader _fileReader;
+    private readonly Dictionary<char, int> _letterRegistry = new();
+    private int _letterShift;
+    private readonly IEnumerable<string> _rawText;
+    private readonly string[] _text;
+    private readonly List<string> realLocations = new();
+    private bool targetRoom;
 
     public Day4Solver()
     {

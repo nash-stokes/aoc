@@ -1,68 +1,67 @@
+using System;
+using System.Linq;
 using AoCProblemSolvers.Utilities;
-using System.Text;
 
 namespace AoCProblemSolvers.AoCDay5;
 
 public class Day5Solver
 {
-    private FileReader _fileReader;
-    private IEnumerable<string> _rawText;
-    private string[] _text;
-    private string hashResult;
-    private string partOnePassword = "";
-    private char[] partTwoPassword = new char[8];
-    private bool[] partTwoPasswordMonitor = new bool[8];
-    private int iterator = 0;
-    private string leadingZeroes = "";
-    private string inputWithIterator = "";
+    private string _partOnePassword = "";
+    private readonly string[] _text;
+    private string _inputWithIterator = "";
+    private int _iterator;
+    private string _leadingZeroes = "";
+    private readonly char[] _partTwoPassword = new char[8];
+    private readonly bool[] _partTwoPasswordMonitor = new bool[8];
 
     public Day5Solver()
     {
-        _fileReader = new FileReader();
-        _rawText = _fileReader.Read("../../../AoCDay5/input.txt");
-        _text = _rawText.ToArray();
-        Array.Fill(partTwoPasswordMonitor, false);
+        var fileReader = new FileReader();
+        var rawText = fileReader.Read("../../../AoCDay5/input.txt");
+        _text = rawText.ToArray();
+        Array.Fill(_partTwoPasswordMonitor, false);
     }
 
     public void SolvePartOne()
     {
-        string inputString = _text[0];
-        for(int i = 0; i < inputString.Length; i++)
+        var inputString = _text[0];
+        foreach (var t in inputString)
         {
+            var hashResult = "";
             do
             {
-                inputWithIterator = inputString + (Convert.ToString(iterator));
-                hashResult = Md5Hasher.hashIt(inputWithIterator);
-                leadingZeroes = hashResult.Substring(0, 5);
-                iterator++;
-            }
-            while (leadingZeroes != "00000");
-            partOnePassword += hashResult[5];
+                _inputWithIterator = inputString + Convert.ToString(_iterator);
+                hashResult = Md5Hasher.hashIt(_inputWithIterator);
+                _leadingZeroes = hashResult.Substring(0, 5);
+                _iterator++;
+            } while (_leadingZeroes != "00000");
+
+            _partOnePassword += hashResult[5];
         }
-        Console.WriteLine(partOnePassword);
+
+        Console.WriteLine(_partOnePassword);
     }
 
     public void SolvePartTwo()
     {
-        string inputString = _text[0];
-        while(partTwoPasswordMonitor.Any(p => p == false)) { 
+        var inputString = _text[0];
+        while (_partTwoPasswordMonitor.Any(p => p == false))
+        {
+            var hashResult = "";
             do
             {
-                inputWithIterator = inputString + (Convert.ToString(iterator));
-                hashResult = Md5Hasher.hashIt(inputWithIterator);
-                leadingZeroes = hashResult.Substring(0, 5);
-                iterator++;
-            }
-            while (leadingZeroes != "00000");
-            int indexToModify = (int)Char.GetNumericValue(hashResult[5]);
-            if (indexToModify < 8 && indexToModify > -1 && partTwoPasswordMonitor[indexToModify] == false) {
-                partTwoPassword[indexToModify] = hashResult[6];
-                partTwoPasswordMonitor[indexToModify] = true;
-            }
+                _inputWithIterator = inputString + Convert.ToString(_iterator);
+                hashResult = Md5Hasher.hashIt(_inputWithIterator);
+                _leadingZeroes = hashResult[..5];
+                _iterator++;
+            } while (_leadingZeroes != "00000");
+
+            var indexToModify = (int)char.GetNumericValue(hashResult[5]);
+            if (indexToModify is >= 8 or <= -1 || _partTwoPasswordMonitor[indexToModify]) continue;
+            _partTwoPassword[indexToModify] = hashResult[6];
+            _partTwoPasswordMonitor[indexToModify] = true;
         }
-        foreach(var letter in partTwoPassword)
-        {
-            Console.Write(letter);
-        }
+
+        foreach (var letter in _partTwoPassword) Console.Write(letter);
     }
 }
