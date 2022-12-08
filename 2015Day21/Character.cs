@@ -14,6 +14,7 @@ namespace AoCProblemSolvers._2015Day21
         public int _hitPoints { get; set; }
         public int _damage { get; set; }
         public int _armor { get; set; }
+        public Item[] _equipment { get; set; }
 
         public Character(string name, int hitPoints, int damage, int armor)
         {
