@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using AoCProblemSolvers.Utilities;
 
 namespace AoCProblemSolvers._2015Day21;
@@ -21,6 +22,7 @@ public class Equipment
         var itemDamage = 0;
         var itemArmor = 0;
         String[] itemInfo;
+        Regex sWhitespace = new Regex(@"\s\s+");
         foreach (var line in _text)
         {
             if (line.Contains(':'))
@@ -28,9 +30,10 @@ public class Equipment
                 itemType = line.Split(':', 2)[0];
                 continue;
             }
-            else if (line != " ")
+            else if (line.Any(x => char.IsLetter(x)))
             {
-                itemInfo = line.Split(null);
+                var lineWithoutWhitespace = sWhitespace.Replace(line, "|");
+                itemInfo = lineWithoutWhitespace.Split('|');;
                 itemName = itemInfo[0];
                 itemCost = Int32.Parse(itemInfo[1]);
                 itemDamage = Int32.Parse(itemInfo[2]);
@@ -38,7 +41,6 @@ public class Equipment
                 var item = new Item(itemType, itemName, itemCost, itemDamage, itemArmor);
                 shopInventory.Add(item);
             }
-            
         }
     }
 
