@@ -11,9 +11,9 @@ public class Item
         Armor = armor;
     }
 
-    private string Type { get; }
-    private string Name { get; }
-    private int Cost { get; }
-    private int Damage { get; }
-    private int Armor { get; }
+    public string Type { get; }
+    public string Name { get; }
+    public int Cost { get; }
+    public int Damage { get; }
+    public int Armor { get; }
 }
