@@ -29,17 +29,20 @@ public class Day4Solver
             //get the character string at the end
             var judgmentString = charStringsRaw.LastOrDefault();
             //get the sectorid
-            var sectorId = Convert.ToInt32(judgmentString.Split('[').ElementAt(0));
+            var sectorId = Convert.ToInt32(judgmentString?.Split('[').ElementAt(0));
             //strip the brackets
-            var judgmentCharacters = judgmentString.Split('[').ElementAt(1).Trim(']');
-            //remove the sectorid and final character string from major string
-            charStringsRaw.Remove(judgmentString);
-            //iterate over each string
-            UpdateRegistryValues(charStringsRaw);
-            if (stringTest(judgmentCharacters))
+            if (judgmentString != null)
             {
-                sum += sectorId;
-                realLocations.Add(line);
+                var judgmentCharacters = judgmentString.Split('[').ElementAt(1).Trim(']');
+                //remove the sectorid and final character string from major string
+                charStringsRaw.Remove(judgmentString);
+                //iterate over each string
+                UpdateRegistryValues(charStringsRaw);
+                if (stringTest(judgmentCharacters))
+                {
+                    sum += sectorId;
+                    realLocations.Add(line);
+                }
             }
 
             _letterRegistry.Clear();

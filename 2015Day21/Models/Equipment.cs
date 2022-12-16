@@ -6,6 +6,9 @@ namespace AoCProblemSolvers._2015Day21;
 public class Equipment
 {
     public List<Item> shopInventory = new List<Item>();
+    public List<Item> weapons = new List<Item>();
+    public List<Item> armor = new List<Item>();
+    public List<Item> rings = new List<Item>();
 
     public Equipment()
     {
@@ -42,6 +45,10 @@ public class Equipment
                 shopInventory.Add(item);
             }
         }
+
+        armor = shopInventory.Where(x => x.Type.Equals("Armor")).ToList();
+        weapons = shopInventory.Where(x => x.Type.Equals("Weapons")).ToList();
+        rings = shopInventory.Where(x => x.Type.Equals("Rings")).ToList();
     }
 
 }
