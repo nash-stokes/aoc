@@ -8,7 +8,7 @@ public class Day5Solver
     private FileReader _fileReader;
     private IEnumerable<string> _rawText;
     private string[] _text;
-    private string hashResult;
+    private string? hashResult;
     private string partOnePassword = "";
     private char[] partTwoPassword = new char[8];
     private bool[] partTwoPasswordMonitor = new bool[8];
@@ -27,17 +27,18 @@ public class Day5Solver
     public void SolvePartOne()
     {
         string inputString = _text[0];
-        for(int i = 0; i < inputString.Length; i++)
+        foreach (var t in inputString)
         {
             do
             {
                 inputWithIterator = inputString + (Convert.ToString(iterator));
                 hashResult = Md5Hasher.hashIt(inputWithIterator);
-                leadingZeroes = hashResult.Substring(0, 5);
+                if (hashResult != null) leadingZeroes = hashResult.Substring(0, 5);
                 iterator++;
             }
             while (leadingZeroes != "00000");
-            partOnePassword += hashResult[5];
+
+            if (hashResult != null) partOnePassword += hashResult[5];
         }
         Console.WriteLine(partOnePassword);
     }
