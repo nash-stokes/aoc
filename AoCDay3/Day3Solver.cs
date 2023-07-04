@@ -13,7 +13,7 @@ public class Day3Solver
         var text = rawText.ToArray();
         foreach (var line in text)
         {
-            var dimensions = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            var dimensions = line.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
             var side1 = int.Parse(dimensions[0]);
             var side2 = int.Parse(dimensions[1]);
             var side3 = int.Parse(dimensions[2]);
@@ -31,7 +31,7 @@ public class Day3Solver
         var dimensions = new List<int>();
         foreach (var line in text)
         {
-            var rawDimensions = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            var rawDimensions = line.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
             //Cleaner way to do this?
             dimensions.Add(int.Parse(rawDimensions[0]));
             dimensions.Add(int.Parse(rawDimensions[1]));
