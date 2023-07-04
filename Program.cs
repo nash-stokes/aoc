@@ -7,6 +7,6 @@ public class ConsoleReader
     public static void Main(string[] args)
     {
         var problemSolver = new Day5Solver();
-        problemSolver.SolvePartOne();
+        problemSolver.SolvePartTwo();
     }
 }

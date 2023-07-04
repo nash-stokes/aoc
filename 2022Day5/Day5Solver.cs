@@ -10,7 +10,7 @@ public class Day5Solver
     private readonly string[] _text;
     private readonly List<int[]> _instructionsList = new ();
     private List<Stack<char>> _stacks;
-        private string[] strings = { "mjcbfrlh", "zcd", "hjfcngw", "pjdmtsb", "ncdrj", "wldqpjgz", "pztfrh", "lvmg", "cbgpfqrj" };
+    private string[] strings = { "mjcbfrlh", "zcd", "hjfcngw", "pjdmtsb", "ncdrj", "wldqpjgz", "pztfrh", "lvmg", "cbgpfqrj" };
 
     public Day5Solver()
     {
@@ -22,6 +22,22 @@ public class Day5Solver
 
     public void SolvePartOne()
     {
+        ConvertRawTextToStrings();
+        SetStacks();
+        ExecuteInstructionsPartOne();
+        PrintOutputText();
+    }
+    
+    public void SolvePartTwo()
+    {
+        ConvertRawTextToStrings();
+        SetStacks();
+        ExecuteInstructionsPartTwo();
+        PrintOutputText();
+    }
+
+    private void SetStacks()
+    {
         for (var i = 0; i < 9; i++)
         {
             _stacks.Add(new Stack<char>());
@@ -30,11 +46,8 @@ public class Day5Solver
                 _stacks[i].Push(character);
             }
         }
-        ConvertRawTextToStrings();
-        ExecuteInstructions();
-        PrintOutputText();
     }
-    
+
     private void PrintOutputText()
     {
         foreach (var stack in _stacks)
@@ -46,31 +59,44 @@ public class Day5Solver
         }
     }
 
-    private void ExecuteInstructions()
+    private void ExecuteInstructionsPartTwo()
     {
         foreach (var instruction in _instructionsList)
         {
             var numberOfCrates = instruction[0];
-            Console.Write(numberOfCrates + " ");
             var sourceStack = instruction[1] - 1;
-            Console.Write(sourceStack + " ");
             var destinationStack = instruction[2] - 1;
-            Console.Write(destinationStack + " ");
+            var tempStack = new Stack<char>();
+            for (var i = 0; i < numberOfCrates; i++)
+            {
+                if (_stacks[sourceStack].Count <= 0) continue;
+                var crate = _stacks[sourceStack].Pop();
+                tempStack.Push(crate);
+            }
+            for (var i = 0; i < numberOfCrates; i++)
+            {
+                var crate = tempStack.Pop();
+                _stacks[destinationStack].Push(crate);
+            }
+        }
+    }
+
+    private void ExecuteInstructionsPartOne()
+    {
+        foreach (var instruction in _instructionsList)
+        {
+            var numberOfCrates = instruction[0];
+            var sourceStack = instruction[1] - 1;
+            var destinationStack = instruction[2] - 1;
             for (var i = 0; i < numberOfCrates; i++)
             {
                 if (_stacks[sourceStack].Count <= 0) continue;
                 var crate = _stacks[sourceStack].Pop();
                 _stacks[destinationStack].Push(crate);
             }
-            Console.WriteLine();
         }
     }
 
-    public void SolvePartTwo()
-    {
-       
-    }
-    
     public void ConvertRawTextToStrings()
     {
         foreach (var t in _text)
