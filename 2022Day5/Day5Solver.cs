@@ -18,20 +18,18 @@ public class Day5Solver
         _rawText = _fileReader.Read("../../../2022Day5/input.txt");
         _text = _rawText.ToArray();
         _stacks = new List<Stack<char>>();
+        ConvertRawTextToStrings();
+        SetStacks();
     }
 
     public void SolvePartOne()
     {
-        ConvertRawTextToStrings();
-        SetStacks();
         ExecuteInstructionsPartOne();
         PrintOutputText();
     }
     
     public void SolvePartTwo()
     {
-        ConvertRawTextToStrings();
-        SetStacks();
         ExecuteInstructionsPartTwo();
         PrintOutputText();
     }
@@ -67,17 +65,22 @@ public class Day5Solver
             var sourceStack = instruction[1] - 1;
             var destinationStack = instruction[2] - 1;
             var tempStack = new Stack<char>();
-            for (var i = 0; i < numberOfCrates; i++)
-            {
-                if (_stacks[sourceStack].Count <= 0) continue;
-                var crate = _stacks[sourceStack].Pop();
-                tempStack.Push(crate);
-            }
+            MoveCrates(numberOfCrates, sourceStack, tempStack);
             for (var i = 0; i < numberOfCrates; i++)
             {
                 var crate = tempStack.Pop();
                 _stacks[destinationStack].Push(crate);
             }
+        }
+    }
+
+    private void MoveCrates(int numberOfCrates, int sourceStack, Stack<char> destinationStack)
+    {
+        for (var i = 0; i < numberOfCrates; i++)
+        {
+            if (_stacks[sourceStack].Count <= 0) continue;
+            var crate = _stacks[sourceStack].Pop();
+            destinationStack.Push(crate);
         }
     }
 
@@ -88,12 +91,7 @@ public class Day5Solver
             var numberOfCrates = instruction[0];
             var sourceStack = instruction[1] - 1;
             var destinationStack = instruction[2] - 1;
-            for (var i = 0; i < numberOfCrates; i++)
-            {
-                if (_stacks[sourceStack].Count <= 0) continue;
-                var crate = _stacks[sourceStack].Pop();
-                _stacks[destinationStack].Push(crate);
-            }
+            MoveCrates(numberOfCrates, sourceStack, _stacks[destinationStack]);
         }
     }
 
