@@ -18,7 +18,7 @@ public class Day6Solver
     public void SolvePartOne()
     {
         var importantString = _text[0];
-        for (int i = 0; i < importantString.Length - 3; i++)
+        for (int i = 0; i <= importantString.Length - 14; i++)
         {
             var charactersHash = new HashSet<char>();
             char first = importantString[i];
@@ -44,7 +44,7 @@ public class Day6Solver
             char fourth = importantString[i + 3];
             if (!charactersHash.Contains(fourth))
             {
-                Console.WriteLine(i + 3);
+                Console.WriteLine(i + 4);
                 break;
             }
         }
@@ -53,8 +53,9 @@ public class Day6Solver
     public void SolvePartTwo()
     {
         var importantString = _text[0];
+        var numberOfCharacters = importantString.Length;
         
-        for (int i = 0; i < importantString.Length - 14; i++)
+        for (int i = 0; i < numberOfCharacters - 14; i++)
         {
             var hashSet = new HashSet<char>();
             for (int j = 0; j < 14; j++)
@@ -71,7 +72,7 @@ public class Day6Solver
             }
 
             if (hashSet.Count != 14) continue;
-            Console.WriteLine(i + 1);
+            Console.WriteLine(i + 14);
             break;
         }
     }
