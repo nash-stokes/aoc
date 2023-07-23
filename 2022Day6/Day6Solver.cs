@@ -18,7 +18,7 @@ public class Day6Solver
     public void SolvePartOne()
     {
         var importantString = _text[0];
-        for (int i = 0; i <= importantString.Length - 14; i++)
+        for (int i = 0; i < importantString.Length - 3; i++)
         {
             var charactersHash = new HashSet<char>();
             char first = importantString[i];
